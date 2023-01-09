@@ -1,1 +1,66 @@
-<p>register works!</p>
+<div class="container d-flex justify-content-center p-3">
+  <form (submit)="onSubmit()">
+    <div class="card p-4 shadow my-5">
+      <h2 class="text-center my-3">Register</h2>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="username"
+          aria-describedby="emailHelp"
+          name="username"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="d-flex">
+        <div>
+          <label for="firstname" class="form-label">Firstname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            aria-describedby="emailHelp"
+            name="firstname"
+            [(ngModel)]="firstname"
+          />
+        </div>
+        <div>
+          <label for="lastname" class="form-label">Lastname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            aria-describedby="emailHelp"
+            name="lastname"
+            [(ngModel)]="lastname"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="confirmPassword">Confirm password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+        />
+      </div>
+      <div class="mb-3">
+        <a href="/login" class="text-decoration-none mx-4">Login</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

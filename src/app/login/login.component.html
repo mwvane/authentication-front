@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="container d-flex justify-content-center p-3">
+  <form (submit)="onSubmit()">
+    <div class="card p-4 shadow my-5">
+      <h2 class="text-center my-3">Login</h2>
+      <div class="mb-3">
+        <label for="username" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="username"
+          aria-describedby="emailHelp"
+          name="username"
+          [(ngModel)]="username"
+        />
+        <div id="emailHelp" class="form-text">
+          lscmlcmsmcscmlsclscsllcmls
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <a href="/register" class="text-decoration-none mx-4">Create an acoount</a>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
