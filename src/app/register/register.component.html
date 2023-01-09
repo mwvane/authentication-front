@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center p-3">
-  <form (submit)="onSubmit()">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
     <div class="card p-4 shadow my-5">
       <h2 class="text-center my-3">Register</h2>
       <div class="mb-3">
@@ -10,7 +10,7 @@
           id="username"
           aria-describedby="emailHelp"
           name="username"
-          [(ngModel)]="email"
+          ngModel
         />
       </div>
       <div class="d-flex">
@@ -22,7 +22,7 @@
             id="firstname"
             aria-describedby="emailHelp"
             name="firstname"
-            [(ngModel)]="firstname"
+            ngModel
           />
         </div>
         <div>
@@ -33,7 +33,7 @@
             id="lastname"
             aria-describedby="emailHelp"
             name="lastname"
-            [(ngModel)]="lastname"
+            ngModel
           />
         </div>
       </div>
@@ -44,7 +44,7 @@
           class="form-control"
           id="password"
           name="password"
-          [(ngModel)]="password"
+          ngModel
         />
       </div>
       <div class="mb-3">
@@ -54,7 +54,7 @@
           class="form-control"
           id="confirmPassword"
           name="confirmPassword"
-          [(ngModel)]="confirmPassword"
+          ngModel
         />
       </div>
       <div class="mb-3">
