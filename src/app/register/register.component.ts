@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 import { User } from '../user';
 
 @Component({
@@ -7,7 +8,10 @@ import { User } from '../user';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  constructor(private apiService: ApiService){
+
+  }
   onSubmit(user: User) {
-    console.log(user);
+    this.apiService.register(user)
   }
 }

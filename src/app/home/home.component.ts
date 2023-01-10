@@ -10,7 +10,8 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
   ngOnInit(): void {
-    if (!this.apiService.isLoggedin()) {
+    const currentUser = localStorage.getItem("currentUser")
+    if (!currentUser) {
       this.router.navigateByUrl('login');
     }
   }

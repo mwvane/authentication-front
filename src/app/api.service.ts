@@ -6,17 +6,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-  currentUser: any;
-  isLoggedin() {
-    return this.currentUser ? true : false;
-    // return true
-  }
   login(username: string, password: string) {
-    const payload = { username, password };
-    const headers = { 'content-type': 'application/json' };
-    this.http
-      .post('https://localhost:7156/api/login', payload)
-      .subscribe((res) => console.log(res));
+    return new Promise((res,rej) => {
+      const payload = { username, password };
+      this.http
+        .post('https://localhost:7156/api/login', payload)
+        .subscribe((data) => {
+          res(data)
+        });
+    })
+    
   }
-  register(user: User) {}
+  
+  register(user: User) {
+    this.http
+      .post('https://localhost:7156/api/register', user)
+      .subscribe((res) => {
+        if(res){
+          console.log(res)
+          return res
+        }
+        return false
+      });
+  }
 }

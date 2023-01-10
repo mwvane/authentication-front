@@ -11,7 +11,12 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   constructor(private apiService: ApiService, private router: Router) {}
-  onSubmit() {
-    this.apiService.login(this.username, this.password);
+  async onSubmit() {
+    const user = await this.apiService.login(this.username, this.password);
+    debugger
+    if(user != null){
+      localStorage.setItem("currentUser",JSON.stringify(user))
+      this.router.navigateByUrl("home")
+    }
   }
 }
