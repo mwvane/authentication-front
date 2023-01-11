@@ -4,30 +4,32 @@
       <h2 class="text-center my-3">Register</h2>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          formControlName="email"
-        />
-        <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">Email requared</small>
+        <input type="email" class="form-control" formControlName="email" />
+        <small
+          *ngIf="
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.touched
+          "
+          class="text-danger"
+          >Email requared</small
+        >
       </div>
       <div class="d-flex">
         <div>
           <label for="firstname" class="form-label">Firstname</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="firstname"
-          />
-        <small *ngIf="registerForm.get('firstname')?.invalid && registerForm.get('firstname')?.touched" class="text-danger">Name requared (minLength 3)</small>
+          <input type="text" class="form-control" formControlName="firstname" />
+          <small
+            *ngIf="
+              registerForm.get('firstname')?.invalid &&
+              registerForm.get('firstname')?.touched
+            "
+            class="text-danger"
+            >Name requared (minLength 3)</small
+          >
         </div>
         <div>
           <label for="lastname" class="form-label">Lastname</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="lastname"
-          />
+          <input type="text" class="form-control" formControlName="lastname" />
         </div>
       </div>
       <div class="mb-3">
@@ -37,7 +39,14 @@
           class="form-control"
           formControlName="password"
         />
-        <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">Password requared (minLength 6)</small>
+        <small
+          *ngIf="
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.touched
+          "
+          class="text-danger"
+          >Password requared (minLength 6)</small
+        >
       </div>
       <div class="mb-3">
         <label class="form-label" for="confirmPassword">Confirm password</label>
@@ -48,12 +57,20 @@
           name="confirmPassword"
           formControlName="confirmPassword"
         />
-        <small *ngIf="passwordMatchError" class="text-danger">Password not match</small>
+        <small *ngIf="passwordMatchError" class="text-danger"
+          >Password not match</small
+        >
       </div>
       <div class="mb-3">
         <a href="/login" class="text-decoration-none mx-4">Login</a>
       </div>
-      <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+      <button
+        [disabled]="registerForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </div>

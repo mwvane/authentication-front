@@ -9,21 +9,24 @@ import { Result } from '../result';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent{
+export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
-    "username": new FormControl(null, [Validators.required, Validators.email]),
-    "password": new FormControl(null, Validators.required),
-
+    username: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, Validators.required),
   });
   constructor(private apiService: ApiService, private router: Router) {}
   async onSubmit() {
-    const result = new Result(await this.apiService.login(this.loginForm.value.username, this.loginForm.value.password));
-    if(result.res != false){
-      localStorage.setItem("currentUser",JSON.stringify(result.res))
-      this.router.navigateByUrl("home")
-    }
-    else{
-      alert(result.error)
+    const result = new Result(
+      await this.apiService.login(
+        this.loginForm.value.username,
+        this.loginForm.value.password
+      )
+    );
+    if (result.res != false) {
+      localStorage.setItem('currentUser', JSON.stringify(result.res));
+      this.router.navigateByUrl('home');
+    } else {
+      alert(result.error);
     }
   }
 }

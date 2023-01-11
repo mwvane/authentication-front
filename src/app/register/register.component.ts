@@ -14,10 +14,17 @@ import { User } from '../user';
 export class RegisterComponent {
   registerForm = new FormGroup(
     {
-      email: new FormControl("", [Validators.required, Validators.email]),
-      firstname: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      lastname: new FormControl(null),password: new FormControl(null, [Validators.required, Validators.minLength(6),]),
-      confirmPassword: new FormControl(null, [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      firstname: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      lastname: new FormControl(null),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+      confirmPassword: new FormControl(null, [Validators.required]),
     },
     [CustomValidators.MatchValidator('password', 'confirmPassword')]
   );
@@ -28,15 +35,16 @@ export class RegisterComponent {
     );
   }
   constructor(private apiService: ApiService, private router: Router) {}
-  
+
   async onSubmit() {
     console.log(this.registerForm.value);
-    const result = new Result(await this.apiService.register(this.registerForm.value));
+    const result = new Result(
+      await this.apiService.register(this.registerForm.value)
+    );
     if (result.res) {
       this.router.navigateByUrl('login');
-    }
-    else{
-      alert(result.error)
+    } else {
+      alert(result.error);
     }
   }
 }

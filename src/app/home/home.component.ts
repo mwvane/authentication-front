@@ -9,8 +9,7 @@ import { User } from '../user';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private apiService: ApiService, private router: Router) {
-  }
+  constructor(private apiService: ApiService, private router: Router) {}
   currentUser: any;
   ngOnInit(): void {
     this.currentUser = localStorage.getItem('currentUser');
