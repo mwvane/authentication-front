@@ -1,6 +1,6 @@
 import { EnvironmentInjector, Injectable } from '@angular/core';
-import { User } from './user';
 import { HttpClient } from '@angular/common/http';
+import { Result } from './result';
 
 const API_URL = process.env.NG_APP_API_URL;
 
@@ -16,16 +16,18 @@ export class ApiService {
       this.http
         .post(`${API_URL}/login`, payload)
         .subscribe((data) => {
+          console.log(data)
           res(data);
         });
     });
   }
 
-  register(user: User) {
+  register(user: object){
     return new Promise((res, rej) => {
       this.http
         .post(`${API_URL}/register`, user)
         .subscribe((data) => {
+          console.log(data)
           if (data) {
             console.log(data);
             res(data);
