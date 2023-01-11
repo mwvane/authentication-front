@@ -12,10 +12,16 @@ export class RegisterComponent {
   constructor(private apiService: ApiService, private router: Router){
 
   }
+  confirmPassword=""
   async onSubmit(user: User) {
-    const result = await this.apiService.register(user)
-    if(result){
-      this.router.navigateByUrl("login")
+    if(this.confirmPassword === user.password){
+      const result = await this.apiService.register(user)
+      if(result){
+        this.router.navigateByUrl("login")
+      }
+    }
+    else{
+      alert("password doesn't match")
     }
   }
 }

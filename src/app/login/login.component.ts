@@ -17,5 +17,8 @@ export class LoginComponent {
       localStorage.setItem("currentUser",JSON.stringify(user))
       this.router.navigateByUrl("home")
     }
+    else{
+      alert("invalid username or password!")
+    }
   }
 }
