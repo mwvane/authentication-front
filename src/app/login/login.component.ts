@@ -13,7 +13,6 @@ export class LoginComponent {
   constructor(private apiService: ApiService, private router: Router) {}
   async onSubmit() {
     const user = await this.apiService.login(this.username, this.password);
-    debugger
     if(user != null){
       localStorage.setItem("currentUser",JSON.stringify(user))
       this.router.navigateByUrl("home")
