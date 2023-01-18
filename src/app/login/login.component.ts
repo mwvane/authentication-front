@@ -15,6 +15,7 @@ export class LoginComponent {
     password: new FormControl(null, Validators.required),
   });
   constructor(private apiService: ApiService, private router: Router) {}
+
   async onSubmit() {
     const result = new Result(
       await this.apiService.login(
@@ -22,11 +23,11 @@ export class LoginComponent {
         this.loginForm.value.password
       )
     );
-    if (result.res != false) {
+    if (result.res) {
       localStorage.setItem('currentUser', JSON.stringify(result.res));
       this.router.navigateByUrl('home');
     } else {
-      alert(result.error);
+      alert(result.errors.join('\n'));
     }
   }
 }

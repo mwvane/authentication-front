@@ -1,8 +1,8 @@
 export class Result {
   res: any;
-  error: string;
+  errors: string[];
   constructor(response: any){
     this.res = response.res
-    this.error = response.error
+    this.errors = response.errors
   }
 }

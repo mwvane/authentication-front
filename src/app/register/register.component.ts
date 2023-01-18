@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { CustomValidators } from '../customValidators';
 import { Result } from '../result';
-import { User } from '../user';
 
 @Component({
   selector: 'app-register',
@@ -44,7 +43,7 @@ export class RegisterComponent {
     if (result.res) {
       this.router.navigateByUrl('login');
     } else {
-      alert(result.error);
+      alert(result.errors.join('\n'));
     }
   }
 }
