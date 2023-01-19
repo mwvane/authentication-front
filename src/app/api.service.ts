@@ -31,4 +31,23 @@ export class ApiService {
       });
     });
   }
+  isUsernameExists(username: any){
+    return new Promise((res, rej) => {
+      this.http.get(`${API_URL}/getUser?username=${username}`).subscribe((data) => {
+        if (data) {
+          console.log(data);
+          res(data);
+        }
+      });
+    });
+  }
+  updatePassword(id: string, password: string) {
+    const payload = { id, password };
+    return new Promise((res, rej) => {
+      this.http.post(`${API_URL}/updatePassword`, payload).subscribe((data) => {
+        console.log(data);
+        res(data);
+      });
+    });
+  }
 }
